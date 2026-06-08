@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Advanced Countdown</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #0d1117;
+            color: white;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        #goal {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #countdown {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        #quote {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="goal">🎯 Goal Rank: AIR 500</div>
+    <div id="countdown">Loading...</div>
+    <div id="quote">No Zero Days.</div>
+</div>
+
+<script>
+    // Change this date to your target exam date
+    const targetDate = new Date("2026-09-16T00:00:00");
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+        if (days > 0) {
+            document.getElementById("countdown").textContent =
+                days + " Days Left";
+        } else if (days === 0) {
+            document.getElementById("countdown").textContent =
+                "🔥 JEE Day!";
+        } else {
+            document.getElementById("countdown").textContent =
+                "🏁 Countdown Finished";
+        }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+</script>
+
+</body>
+</html>
